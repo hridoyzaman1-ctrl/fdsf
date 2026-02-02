@@ -1130,39 +1130,69 @@
         text-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
         font-family: var(--serif) !important;
         font-weight: 300 !important;
-        letter-spacing: 0.1rem !important;
-        font-size: clamp(2rem, 8vw, 3.5rem) !important;
+        letter-spacing: min(1.5vw, 1.2rem) !important;
+        font-size: clamp(3rem, 6vw, 6.5rem) !important;
         white-space: nowrap !important;
         text-transform: uppercase !important;
-        width: 100% !important;
+        width: auto !important;
       }
 
+      /* Desktop: Spiral Words Visible */
       .onclock__words {
-        display: none !important;
+        display: block !important;
       }
 
+      /* Desktop: Theme Toggle Hidden (or Default Position) */
       .theme-toggle {
-        display: flex !important;
-        position: fixed !important;
-        bottom: 2rem !important;
-        right: 2rem !important;
-        z-index: 9999 !important;
-        background: var(--white);
-        border-radius: 50%;
-        padding: 1rem;
-        width: 5rem;
-        height: 5rem;
-        justify-content: center;
-        align-items: center;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        display: flex;
+        /* Kept flex but removed fixed positioning overrides */
       }
 
       .theme-toggle svg {
-        width: 2.4rem;
-        height: 2.4rem;
-        stroke: var(--dark-blue);
+        width: 24px;
+        height: 24px;
+        stroke: currentColor;
         fill: none;
       }
+
+      /* =========================================
+         MOBILE OVERRIDES (Max Width 768px)
+         ========================================= */
+      @media screen and (max-width: 768px) {
+        .hero__title__h1 {
+          letter-spacing: 0.1rem !important;
+          font-size: clamp(2rem, 8vw, 3.5rem) !important;
+          width: 100% !important;
+        }
+
+        .onclock__words {
+          display: none !important;
+        }
+
+        .theme-toggle {
+          display: flex !important;
+          position: fixed !important;
+          bottom: 2rem !important;
+          right: 2rem !important;
+          z-index: 9999 !important;
+          background: var(--white);
+          border-radius: 50%;
+          padding: 1rem;
+          width: 5rem;
+          height: 5rem;
+          justify-content: center;
+          align-items: center;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .theme-toggle svg {
+          width: 2.4rem;
+          height: 2.4rem;
+          stroke: var(--dark-blue);
+        }
+      }
+
+
 
       .hero__subt {
         margin-bottom: 2rem !important;
