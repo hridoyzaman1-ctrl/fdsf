@@ -87,19 +87,35 @@
       body.light-mode,
       .is-light-mode {
         --dark-blue: #fdfaf0 !important;
-        --white: #0d0d0d !important;
+        /* DAWN: Cream Yellowish Base */
+        --dawn-alt: #F2EFE4;
+        /* DAWN VARIANT: Slightly darker cream for alternation */
+        --white: #1a1a1a !important;
         --soft: #FFD700 !important;
-        --color: #050505 !important;
-        --color-soft: rgba(5, 5, 5, 0.65) !important;
-        --color-rgb: 5, 5, 5 !important;
+        --color: #1a1a1a !important;
+        --color-soft: rgba(0, 0, 0, 0.7) !important;
+        --color-rgb: 26, 26, 26 !important;
         --soft-rgb: 255, 204, 0 !important;
         --black: #ffffff !important;
-        background-color: #ffffff !important;
+        background-color: var(--dark-blue) !important;
+        /* Restore Dawn Base */
       }
 
+      /* LIGHT MODE: Alternating Section Colors for Coherency */
       .light-mode section,
       html.light-mode section {
-        background: #ffffff !important;
+        background-color: var(--dark-blue);
+        /* Default Dawn */
+      }
+
+      /* Alternating Rhythm: Even sections get the variant color */
+      .light-mode section:nth-of-type(even) {
+        background-color: var(--dawn-alt) !important;
+      }
+
+      /* Specific Override for Intro/Hero to keep it coherent */
+      .light-mode .hero {
+        background-color: var(--dark-blue) !important;
       }
 
       html {
