@@ -3467,11 +3467,12 @@
         mainCanvas.style.visibility = 'visible';
       }
 
-      document.querySelectorAll('section').forEach(s => {
-        if (!s.classList.contains('note') && !s.classList.contains('hero')) {
-          s.style.backgroundColor = 'transparent';
-        }
-      });
+      // Transparency override removed to prevent color loss
+      // document.querySelectorAll('section').forEach(s => {
+      //   if (!s.classList.contains('note') && !s.classList.contains('hero')) {
+      //     s.style.backgroundColor = 'transparent';
+      //   }
+      // });
 
       // FIX FOR NOTE BUTTON INTERACTIVITY
       const noteButton = document.querySelector('.trg-note');
