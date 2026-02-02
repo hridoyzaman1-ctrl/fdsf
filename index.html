@@ -1063,7 +1063,7 @@
       /* ___________________ MOBILE ___________________ */
       @media screen and (max-width: 568px) {
         html {
-          font-size: calc(100vw / 390 * 10);
+          font-size: calc(100vw / 767 * 10);
         }
 
         .insights {
@@ -1132,7 +1132,7 @@
         font-weight: 300 !important;
         letter-spacing: min(2vw, 1.2rem) !important;
         font-size: clamp(2.5rem, 6vw, 6.5rem) !important;
-        /* white-space: nowrap !important; REMOVED FOR MOBILE COMPATIBILITY */
+        white-space: nowrap !important;
         text-transform: uppercase !important;
       }
 
@@ -1333,12 +1333,6 @@
 
       /* EMERGENCY MOBILE OVERFLOW FIXES */
       @media screen and (max-width: 568px) {
-        .hero__title__h1 {
-          white-space: normal !important;
-          word-wrap: break-word !important;
-          overflow-wrap: break-word !important;
-          hyphens: auto !important;
-        }
 
         .webgl,
         .note,
