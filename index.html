@@ -88,8 +88,10 @@
       .is-light-mode {
         --dark-blue: #fdfaf0 !important;
         /* DAWN: Cream Yellowish Base */
-        --dawn-alt: #F2EFE4;
-        /* DAWN VARIANT: Slightly darker cream for alternation */
+        --dawn-alt: #ece6d0 !important;
+        /* DAWN VARIANT: DISTINCT Warm Beige/Tan */
+        --dawn-accent: #e3dec5 !important;
+        /* DAWN ACCENT: Darker variation for specific sections */
         --white: #1a1a1a !important;
         --soft: #FFD700 !important;
         --color: #1a1a1a !important;
@@ -108,9 +110,14 @@
         /* Default Dawn */
       }
 
-      /* Alternating Rhythm: Even sections get the variant color */
+      /* Alternating Rhythm: Even sections get the darker variant */
       .light-mode section:nth-of-type(even) {
         background-color: var(--dawn-alt) !important;
+      }
+
+      /* Specific distinct color for Section Blue to create 3-color rhythm */
+      .light-mode .section-blue {
+        background-color: var(--dawn-accent) !important;
       }
 
       /* Specific Override for Intro/Hero to keep it coherent */
