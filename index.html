@@ -518,21 +518,48 @@
         background: transparent;
       }
 
+      /* DREAM MIST ANIMATION (Replaces White Box) */
       li.solutions__each:before {
         position: absolute;
         content: '';
-        background: var(--dark-blue);
-        background: radial-gradient(circle, rgba(var(--color-rgb), 1) 65%, rgba(var(--color-rgb), 0.71) 81%, rgba(var(--color-rgb), 0) 100%);
-        height: 6rem;
-        width: 97rem;
+        /* Soft Nebula Gradient */
+        background: radial-gradient(circle, rgba(var(--soft-rgb), 0.15) 0%, rgba(var(--color-rgb), 0.05) 40%, transparent 70%);
+        height: 15rem;
+        /* Larger but softer */
+        width: 15rem;
         z-index: -1;
-        top: 43%;
-        left: -19rem;
+        top: 50%;
+        left: -5rem;
+        /* Positioned near the start of text */
+        transform: translateY(-50%) scale(0.8);
+        border-radius: 50%;
+        filter: blur(40px);
+        opacity: 0.6;
+        animation: dreamPulse 4s ease-in-out infinite alternate;
+        pointer-events: none;
       }
 
-      .solutions__each:nth-child(1):before {
-        display: none;
+      @keyframes dreamPulse {
+        0% {
+          transform: translateY(-50%) scale(0.8);
+          opacity: 0.4;
+        }
+
+        100% {
+          transform: translateY(-50%) scale(1.2);
+          opacity: 0.7;
+        }
       }
+
+      /* Hover Effect for the Mist */
+      li.solutions__each:hover:before {
+        background: radial-gradient(circle, rgba(var(--soft-rgb), 0.25) 0%, rgba(var(--color-rgb), 0.1) 50%, transparent 80%);
+        transition: background 0.5s ease;
+      }
+
+      /* Ensure no blocking on first child either, but let it have the mist if desired */
+      /* Or keep it removed if originally intended. Let's enabling it for all for consistency. */
+      /* .solutions__each:nth-child(1):before { display: none; } -- REMOVED to show across ALL SIX items */
 
       path.footer-decor-solid,
       .cta-button {
