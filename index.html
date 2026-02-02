@@ -3472,6 +3472,48 @@
           s.style.backgroundColor = 'transparent';
         }
       });
+
+      // FIX FOR NOTE BUTTON INTERACTIVITY
+      const noteButton = document.querySelector('.trg-note');
+      const noteSection = document.querySelector('section.note');
+      const noteCloseBtn = document.querySelector('.btn_back_premium'); // Arrow back
+      const noteCloseX = document.querySelector('.btn_close_premium'); // X button
+
+      if (noteButton) {
+        noteButton.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          document.body.classList.add('is-note-active');
+        });
+      }
+
+      function closeNote() {
+        document.body.classList.remove('is-note-active');
+      }
+
+      if (noteCloseBtn) noteCloseBtn.addEventListener('click', closeNote);
+      if (noteCloseX) noteCloseX.addEventListener('click', closeNote);
+
+      // VIDEO SCROLL PLAYBACK (Seamless Transfer)
+      // Ensures videos play ONLY when in view, creating the "transfer" effect
+      const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const video = entry.target;
+          if (entry.isIntersecting) {
+            video.play().catch(() => { });
+          } else {
+            video.pause();
+          }
+        });
+      }, { threshold: 0.5 }); // Play when 50% visible
+
+      document.querySelectorAll('video').forEach(video => {
+        // Exclude the main note video if needed, or include all
+        if (!video.closest('.note')) {
+          videoObserver.observe(video);
+        }
+      });
+
     });
   </script>
 </body>
