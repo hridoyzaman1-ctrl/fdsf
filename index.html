@@ -3298,13 +3298,16 @@
   </script>
   <canvas id="snow-canvas"></canvas>
   <script>
-    // Premium Snow Particle System (Falling Dots)
+    // Premium Snow Particle System (Falling Dots) - Section Aware
     (function () {
       const canvas = document.getElementById('snow-canvas');
       const ctx = canvas.getContext('2d');
       let width, height, particles = [];
-      const particleCount = 230; // Balanced: 230
+      const particleCount = 100; // Reduced for elegance
       const dotColor = '#FFD700'; // Brand Yellow
+
+      let opacity = 0;
+      let targetOpacity = 0;
 
       function init() {
         width = window.innerWidth;
@@ -3316,38 +3319,73 @@
           particles.push({
             x: Math.random() * width,
             y: Math.random() * height,
-            size: Math.random() * 2.5 + 1.0, // Balanced: 1.0px to 3.5px
-            speed: Math.random() * 1.0 + 0.4, // Balanced speed
-            opacity: Math.random() * 0.4 + 0.3, // Balanced Opacity (0.3 to 0.7)
+            size: Math.random() * 2 + 0.5,
+            speed: Math.random() * 0.4 + 0.1,
+            opacity: Math.random() * 0.5 + 0.2,
             swing: Math.random() * 2,
-            swingSpeed: Math.random() * 0.05
+            swingSpeed: Math.random() * 0.02
           });
         }
       }
 
       function animate() {
         ctx.clearRect(0, 0, width, height);
-        particles.forEach(p => {
-          ctx.beginPath();
-          ctx.arc(p.x + Math.sin(p.swing) * 20, p.y, p.size, 0, Math.PI * 2);
-          ctx.fillStyle = dotColor;
-          ctx.globalAlpha = p.opacity;
-          ctx.fill();
 
+        // Smooth Opacity Transition
+        if (Math.abs(opacity - targetOpacity) > 0.01) {
+          opacity += (targetOpacity - opacity) * 0.05;
+        } else {
+          opacity = targetOpacity;
+        }
+
+        if (opacity < 0.01) {
+          requestAnimationFrame(animate);
+          return;
+        }
+
+        ctx.fillStyle = dotColor;
+
+        particles.forEach(p => {
           p.y += p.speed;
           p.swing += p.swingSpeed;
+          p.x += Math.sin(p.swing) * 0.2;
 
           if (p.y > height) {
-            p.y = -10;
+            p.y = 0;
             p.x = Math.random() * width;
           }
+
+          ctx.globalAlpha = p.opacity * opacity;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fill();
         });
+
         requestAnimationFrame(animate);
       }
 
-      window.addEventListener('resize', init);
       init();
       animate();
+
+      window.addEventListener('resize', init);
+
+      // VISIBILITY LOGIC
+      function checkVisibility() {
+        const activeSections = document.querySelectorAll('.hero, .section-blue, .ender');
+        let isAnyActiveInView = false;
+
+        activeSections.forEach(sec => {
+          const rect = sec.getBoundingClientRect();
+          if (rect.top < window.innerHeight * 0.8 && rect.bottom > window.innerHeight * 0.2) {
+            isAnyActiveInView = true;
+          }
+        });
+
+        targetOpacity = isAnyActiveInView ? 1 : 0;
+      }
+
+      window.addEventListener('scroll', checkVisibility);
+      checkVisibility();
     })();
 
     // Site Visibility & Transparency Fix
