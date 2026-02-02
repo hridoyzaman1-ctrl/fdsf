@@ -82,67 +82,63 @@
         --soft-rgb: 255, 215, 0;
       }
 
+      /* LIGHT MODE: Strict Two-Color Alternation (Cream vs Navy) */
       .light-mode,
       html.light-mode,
       body.light-mode,
       .is-light-mode {
-        --dark-blue: #fdfaf0 !important;
-        /* DAWN: Cream Yellowish Base */
-        --dawn-alt: #0a1f49 !important;
-        /* DAWN CONTRAST: Deep Royal Blue */
-        --dawn-accent: #0a1f49 !important;
-        /* Unified Deep Blue */
+        --dark-blue: #FFFBF0 !important;
+        /* BASE: Rich Cream/Ivory */
+        --dawn-alt: #0C162D !important;
+        /* ALT: Deep Midnight/Navy Blue */
         --white: #1a1a1a !important;
+        /* Text on Cream */
+        --dawn-text-on-navy: #ffffff !important;
+        /* Text on Navy */
+
         --soft: #FFD700 !important;
         --color: #1a1a1a !important;
         --color-soft: rgba(0, 0, 0, 0.7) !important;
-        /* Special handling for dark sections in light mode */
-        --text-on-dark: #ffffff !important;
+        background-color: var(--dark-blue) !important;
       }
 
-      /* LIGHT MODE: Alternating Section Colors for Coherency */
+      /* DEFAULT / ODD SECTIONS: CREAM */
       .light-mode section,
-      html.light-mode section {
-        background-color: var(--dark-blue);
-        /* Default Dawn Cream */
+      html.light-mode section,
+      .light-mode .section-blue {
+        background-color: var(--dark-blue) !important;
+        color: var(--white) !important;
+        --color: #1a1a1a !important;
+        --white: #1a1a1a !important;
       }
 
-      /* Alternating Rhythm: Even sections get the Deep Blue */
+      /* ODD SECTION TEXT FIXES (Dark Text) */
+      .light-mode section .parag,
+      .light-mode section .title_serif,
+      .light-mode section .title_sans,
+      .light-mode section .subtitle__text,
+      .light-mode section .description {
+        color: var(--white) !important;
+      }
+
+      /* EVEN SECTIONS: NAVY BLUE */
       .light-mode section:nth-of-type(even) {
         background-color: var(--dawn-alt) !important;
-        color: var(--text-on-dark) !important;
+        color: var(--dawn-text-on-navy) !important;
         --color: #ffffff !important;
         --white: #ffffff !important;
       }
 
-      /* Fix text elements inside dark alternating sections */
+      /* EVEN SECTION TEXT FIXES (White Text) */
       .light-mode section:nth-of-type(even) .parag,
       .light-mode section:nth-of-type(even) .title_serif,
       .light-mode section:nth-of-type(even) .title_sans,
       .light-mode section:nth-of-type(even) .subtitle__text,
       .light-mode section:nth-of-type(even) .description {
-        color: var(--text-on-dark) !important;
+        color: var(--dawn-text-on-navy) !important;
       }
 
-      /* Specific distinct color for Section Blue to create 3-color rhythm */
-      /* Specific distinct color for Section Blue to create 3-color rhythm */
-      .light-mode section.section-blue,
-      .light-mode div.section-blue,
-      .light-mode .section-blue {
-        background-color: var(--dawn-accent) !important;
-        color: var(--text-on-dark) !important;
-        --color: #ffffff !important;
-        --white: #ffffff !important;
-      }
-
-      /* Fix text for explicit blue sections */
-      .light-mode .section-blue .parag,
-      .light-mode .section-blue .title_serif,
-      .light-mode .section-blue .title_sans,
-      .light-mode .section-blue .subtitle__text,
-      .light-mode .section-blue .description {
-        color: var(--text-on-dark) !important;
-      }
+      /* REMOVED .section-blue specific override to allow alternation */
 
       /* Specific Override for Intro/Hero to keep it coherent */
       .light-mode .hero {
