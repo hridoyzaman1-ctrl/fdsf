@@ -1366,6 +1366,17 @@
         display: block !important;
       }
 
+      /* LIGHT MODE NOTE OVERRIDE */
+      .light-mode section.note {
+        background: rgba(255, 251, 240, 0.98) !important;
+        /* Cream Opacity */
+      }
+
+      .light-mode .note__close,
+      .light-mode .btn_back_premium {
+        color: var(--dawn-alt) !important;
+      }
+
       .note__content_fixed {
         display: flex !important;
         flex-direction: row !important;
@@ -1563,50 +1574,59 @@
     </div>
 
     <div class="note__content_fixed">
-      <!-- Media Content -->
+      <!-- Media Content (Left) -->
       <div class="note__left_col">
-        <video muted="" playsinline="" autoplay="true" loop="" style="width: 100%; display: block; object-fit: cover;">
-          <source
-            src="https://assets.mixkit.co/videos/preview/mixkit-independent-filmmaker-recording-with-his-camera-34533-large.mp4">
-        </video>
+        <div
+          style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 2rem; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
+          <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"
+            src="https://www.youtube.com/embed/1ZYbU82GVz4?controls=0&rel=0&autoplay=1&mute=1&loop=1&playlist=1ZYbU82GVz4"
+            title="Sleep Focus Video" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
       </div>
 
-      <!-- Text Content -->
+      <!-- Text Content (Right) -->
       <div class="note__right_col">
-        <div class="note__title_premium">FROM A CREATIVE TO ANOTHER CREATIVE</div>
+        <div class="note__title_premium" style="font-family: var(--serif); color: var(--color);">FROM A CREATIVE TO
+          ANOTHER CREATIVE</div>
 
-        <p class="note__parag_fixed">
-          This website isn’t a product. <span style="font-weight: 700; color: #fff;">It’s a personal creative
+        <p class="note__parag_fixed" style="color: var(--color);">
+          This website isn’t a product. <span style="font-weight: 700; color: var(--color);">It’s a personal creative
             pulse.</span>
           <br><br>
           A sleep research project turned into an interactive story — a reminder for myself and for you. We build things
-          that live in digital spaces. We chase deadlines, chase ideas, chase momentum — and somewhere along the way, we
-          forget that our creativity doesn’t come from caffeine or chaos. It comes from the Flow.
+          that live on screens. We chase deadlines, chase ideas, chase perfection — and somewhere along the way, we
+          forget that our creativity doesn’t come from caffeine or chaos. It comes from rest.
           <br><br>
-          This site isn’t claiming expertise. It’s an immersive exploration — a way to see how design, storytelling, and
-          rhythm can merge to help us, the creative community, find our center. Because better rhythm means sharper
-          focus. Better flow means deeper work.
+          This site isn’t claiming expertise. It’s a creative research project — a way to explore how design,
+          storytelling, and science can merge to help us, the creative community, take better care of ourselves. Because
+          better sleep means better ideas.
+          <br>Better rhythm means better work.
           <br><br>
           If you leave here with one thought, let it be this:<br>
-          <span style="font-weight: 700; color: #fff;">You can’t create sustainably without pulse.</span>
+          <span style="font-weight: 700; color: var(--color);">You can’t create sustainably without rest.</span>
           <br><br>
-          Focus is the part of the process you don’t see in the timeline — but it’s where the real magic happens. Thank
-          you for exploring this with me.
+          Sleep is the part of the process you don’t see in the timeline — but it’s where the real crafting happens.
+          Thank you for exploring this with me.
           <br><br>
-          <span style="font-family: serif; font-style: italic; opacity: 0.8;">Let’s keep designing — but also keep
-            flowing.</span>
+          <span style="font-family: var(--serif); font-style: italic; opacity: 0.8; font-size: 1.25em;">Let’s keep
+            designing — but also keep dreaming.</span>
           <br><br>
-          — <span style="font-weight: 600;"> Victor Costa </span> (THYNKIT STUDIO)
+          — <span style="font-weight: 600;"> Hridoy Zaman </span>
         </p>
 
         <ul role="list" class="note__list w-list-unstyled">
           <li class="note__list__each">
             <div class="subtitle">
-              <div class="subtitle__dot"></div>
-              <div class="subtitle__text" style="opacity: 0.5;">DESIGN, DEVELOPMENT, 3D ASSETS:</div>
+              <div class="subtitle__dot" style="background-color: var(--color);"></div>
+              <div class="subtitle__text" style="opacity: 0.5; color: var(--color);">DESIGN, DEVELOPMENT, 3D ASSETS:
+              </div>
             </div>
             <div class="subtitle">
-              <div class="subtitle__text" style="font-weight: 700; letter-spacing: 0.2em;">THYNKIT STUDIO</div>
+              <div class="subtitle__text" style="font-weight: 700; letter-spacing: 0.2em; color: var(--color);">HRIDOY
+                WORK</div>
             </div>
           </li>
         </ul>
