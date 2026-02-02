@@ -88,31 +88,40 @@
       .is-light-mode {
         --dark-blue: #fdfaf0 !important;
         /* DAWN: Cream Yellowish Base */
-        --dawn-alt: #ece6d0 !important;
-        /* DAWN VARIANT: DISTINCT Warm Beige/Tan */
-        --dawn-accent: #e3dec5 !important;
-        /* DAWN ACCENT: Darker variation for specific sections */
+        --dawn-alt: #0a1f49 !important;
+        /* DAWN CONTRAST: Deep Royal Blue */
+        --dawn-accent: #0a1f49 !important;
+        /* Unified Deep Blue */
         --white: #1a1a1a !important;
         --soft: #FFD700 !important;
         --color: #1a1a1a !important;
         --color-soft: rgba(0, 0, 0, 0.7) !important;
-        --color-rgb: 26, 26, 26 !important;
-        --soft-rgb: 255, 204, 0 !important;
-        --black: #ffffff !important;
-        background-color: var(--dark-blue) !important;
-        /* Restore Dawn Base */
+        /* Special handling for dark sections in light mode */
+        --text-on-dark: #ffffff !important;
       }
 
       /* LIGHT MODE: Alternating Section Colors for Coherency */
       .light-mode section,
       html.light-mode section {
         background-color: var(--dark-blue);
-        /* Default Dawn */
+        /* Default Dawn Cream */
       }
 
-      /* Alternating Rhythm: Even sections get the darker variant */
+      /* Alternating Rhythm: Even sections get the Deep Blue */
       .light-mode section:nth-of-type(even) {
         background-color: var(--dawn-alt) !important;
+        color: var(--text-on-dark) !important;
+        --color: #ffffff !important;
+        --white: #ffffff !important;
+      }
+
+      /* Fix text elements inside dark alternating sections */
+      .light-mode section:nth-of-type(even) .parag,
+      .light-mode section:nth-of-type(even) .title_serif,
+      .light-mode section:nth-of-type(even) .title_sans,
+      .light-mode section:nth-of-type(even) .subtitle__text,
+      .light-mode section:nth-of-type(even) .description {
+        color: var(--text-on-dark) !important;
       }
 
       /* Specific distinct color for Section Blue to create 3-color rhythm */
@@ -121,11 +130,25 @@
       .light-mode div.section-blue,
       .light-mode .section-blue {
         background-color: var(--dawn-accent) !important;
+        color: var(--text-on-dark) !important;
+        --color: #ffffff !important;
+        --white: #ffffff !important;
+      }
+
+      /* Fix text for explicit blue sections */
+      .light-mode .section-blue .parag,
+      .light-mode .section-blue .title_serif,
+      .light-mode .section-blue .title_sans,
+      .light-mode .section-blue .subtitle__text,
+      .light-mode .section-blue .description {
+        color: var(--text-on-dark) !important;
       }
 
       /* Specific Override for Intro/Hero to keep it coherent */
       .light-mode .hero {
         background-color: var(--dark-blue) !important;
+        --color: #1a1a1a !important;
+        /* Keep text dark on cream */
       }
 
       html {
