@@ -1373,8 +1373,54 @@
       }
 
       .light-mode .note__close,
+      .light-mode .btn_close_premium,
       .light-mode .btn_back_premium {
         color: var(--dawn-alt) !important;
+        border-color: var(--dawn-alt) !important;
+      }
+
+      /* HIDE THEME TOGGLE WHEN NOTE IS ACTIVE TO PREVENT OVERLAP */
+      body.is-note-active .theme-toggle {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+      }
+
+      /* FIX CLOSE BUTTON POSITION & Z-INDEX */
+      .btn_close_premium.note__close {
+        position: fixed !important;
+        top: 3rem !important;
+        right: 3rem !important;
+        z-index: 99999 !important;
+        /* Ensure it's absolutely on top */
+        width: 4rem;
+        height: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background: transparent;
+        border: 1px solid currentColor;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+
+      .btn_close_premium.note__close:hover {
+        transform: rotate(90deg);
+      }
+
+      /* ADJUST BACK BUTTON POSITION */
+      .btn_back_premium.note__close {
+        position: fixed !important;
+        top: 3rem !important;
+        left: 3rem !important;
+        z-index: 99999 !important;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        text-decoration: none;
+        color: inherit;
       }
 
       .note__content_fixed {
@@ -1579,7 +1625,7 @@
         <div
           style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 2rem; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
           <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"
-            src="https://www.youtube.com/embed/1ZYbU82GVz4?controls=0&rel=0&autoplay=1&mute=1&loop=1&playlist=1ZYbU82GVz4"
+            src="https://www.youtube.com/embed/xxxWv6PM4EM?controls=0&rel=0&autoplay=1&mute=1&loop=1&playlist=xxxWv6PM4EM"
             title="Sleep Focus Video" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
