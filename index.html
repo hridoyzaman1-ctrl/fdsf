@@ -518,42 +518,56 @@
         background: transparent;
       }
 
-      /* DREAM MIST ANIMATION (Replaces White Box) */
+      /* DREAM MIST ANIMATION (Replaces White Box) - PROMINENT VERSION */
       li.solutions__each:before {
         position: absolute;
         content: '';
-        /* Soft Nebula Gradient */
-        background: radial-gradient(circle, rgba(var(--soft-rgb), 0.15) 0%, rgba(var(--color-rgb), 0.05) 40%, transparent 70%);
-        height: 15rem;
-        /* Larger but softer */
-        width: 15rem;
+        /* Stronger Nebula Gradient: More opaque center, wider fade */
+        background: radial-gradient(circle, rgba(var(--soft-rgb), 0.4) 0%, rgba(var(--color-rgb), 0.15) 50%, transparent 80%);
+        height: 25rem;
+        /* Much Larger */
+        width: 25rem;
         z-index: -1;
         top: 50%;
-        left: -5rem;
-        /* Positioned near the start of text */
-        transform: translateY(-50%) scale(0.8);
+        left: -8rem;
+        transform: translateY(-50%) scale(0.9);
         border-radius: 50%;
-        filter: blur(40px);
-        opacity: 0.6;
+        filter: blur(50px);
+        /* Softer blur for larger size */
+        opacity: 0.9;
+        /* Much more visible */
         animation: dreamPulse 4s ease-in-out infinite alternate;
         pointer-events: none;
+        mix-blend-mode: screen;
+        /* Glows in dark mode */
+      }
+
+      /* Light Mode Specifics for Visibility */
+      .light-mode li.solutions__each:before {
+        /* Darker/Gold mist for light background */
+        background: radial-gradient(circle, rgba(255, 215, 0, 0.5) 0%, rgba(0, 0, 0, 0.1) 60%, transparent 80%) !important;
+        mix-blend-mode: multiply;
+        /* Darkens on white background */
+        opacity: 0.8 !important;
       }
 
       @keyframes dreamPulse {
         0% {
-          transform: translateY(-50%) scale(0.8);
-          opacity: 0.4;
+          transform: translateY(-50%) scale(0.9);
+          opacity: 0.7;
         }
 
         100% {
-          transform: translateY(-50%) scale(1.2);
-          opacity: 0.7;
+          transform: translateY(-50%) scale(1.3);
+          /* Bigger pulse */
+          opacity: 1;
         }
       }
 
       /* Hover Effect for the Mist */
       li.solutions__each:hover:before {
-        background: radial-gradient(circle, rgba(var(--soft-rgb), 0.25) 0%, rgba(var(--color-rgb), 0.1) 50%, transparent 80%);
+        background: radial-gradient(circle, rgba(var(--soft-rgb), 0.6) 0%, rgba(var(--color-rgb), 0.3) 50%, transparent 90%);
+        filter: blur(40px);
         transition: background 0.5s ease;
       }
 
