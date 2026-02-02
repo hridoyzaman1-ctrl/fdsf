@@ -59,7 +59,7 @@
 
 
   <link rel="stylesheet" href="./unpkg.com/lenis%401.3.14/dist/lenis.css">
-  <link rel="stylesheet" href="./assets_v1/assets/index-DQEsxz9V.css">
+  <!-- <link rel="stylesheet" href="./assets_v1/assets/index-DQEsxz9V.css"> -->
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
     rel="stylesheet">
@@ -110,7 +110,9 @@
       body {
         width: 100%;
         max-width: 100%;
-        overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden !important;
         overflow-y: auto;
         scrollbar-width: none;
         background: var(--dark-blue);
@@ -1061,7 +1063,7 @@
       /* ___________________ MOBILE ___________________ */
       @media screen and (max-width: 568px) {
         html {
-          font-size: calc(100vw / 767 * 10);
+          font-size: calc(100vw / 390 * 10);
         }
 
         .insights {
@@ -1206,7 +1208,7 @@
         position: fixed !important;
         top: 0;
         left: 0;
-        width: 100vw !important;
+        width: 100% !important;
         height: 100vh !important;
         z-index: 9999 !important;
         overflow-y: auto !important;
