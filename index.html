@@ -3303,7 +3303,7 @@
       const canvas = document.getElementById('snow-canvas');
       const ctx = canvas.getContext('2d');
       let width, height, particles = [];
-      const particleCount = 280; // Increased from 180
+      const particleCount = 230; // Balanced: 230
       const dotColor = '#FFD700'; // Brand Yellow
 
       function init() {
@@ -3316,9 +3316,9 @@
           particles.push({
             x: Math.random() * width,
             y: Math.random() * height,
-            size: Math.random() * 3.5 + 1.5, // Larger: 1.5px to 5px
-            speed: Math.random() * 1.5 + 0.5, // Faster
-            opacity: Math.random() * 0.5 + 0.5, // More visible (0.5 to 1.0)
+            size: Math.random() * 2.5 + 1.0, // Balanced: 1.0px to 3.5px
+            speed: Math.random() * 1.0 + 0.4, // Balanced speed
+            opacity: Math.random() * 0.4 + 0.3, // Balanced Opacity (0.3 to 0.7)
             swing: Math.random() * 2,
             swingSpeed: Math.random() * 0.05
           });
